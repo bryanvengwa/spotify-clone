@@ -1,0 +1,8 @@
+GET http://localhost:3000/
+###
+GET http://localhost:3000/songs
+###
+GET http://localhost:3000/songs/1
+###
+POST http://localhost:3000/songs
+
