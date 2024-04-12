@@ -4,12 +4,14 @@ import { Injectable } from '@nestjs/common';
 export class SongsService {
   // local array
 
-  private readonly songs = [];
-  create(song) {
+  private readonly songs : string[] = [];
+  create(song : string) {
+    // save the songs to the db
     this.songs.push(song);
     return this.songs;
   }
   findAll() {
+    // fetch the songs from the db
     return this.songs;
   }
 }
