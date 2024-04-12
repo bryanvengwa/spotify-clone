@@ -5,4 +5,8 @@ GET http://localhost:3000/songs
 GET http://localhost:3000/songs/1
 ###
 POST http://localhost:3000/songs
+###
+DELETE http://localhost:3000/songs/1
+###
+PUT http://localhost:3000/songs/1
 
