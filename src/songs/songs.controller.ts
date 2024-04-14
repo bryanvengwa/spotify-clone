@@ -14,7 +14,12 @@ export class SongsController {
 
   @Get()
   findAllSongs() {
-    return this.songService.findAll();
+    try{
+        throw new Error('Error in db while fetching records')
+        return this.songService.findAll();
+    }catch(err){
+        console.log('i am in the catch block and ', err)
+    }
   }
 
   @Get(':id')
