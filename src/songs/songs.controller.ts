@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Post, Put } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song-dto';
+import { STATUS_CODES } from 'http';
 
 @Controller('songs')
 export class SongsController {
@@ -18,7 +19,9 @@ export class SongsController {
         throw new Error('Error in db while fetching records')
         return this.songService.findAll();
     }catch(err){
-        console.log('i am in the catch block and ', err)
+        throw new HttpException('server yaita error' , HttpStatus.FORBIDDEN, {
+            cause: err
+        })
     }
   }
 
