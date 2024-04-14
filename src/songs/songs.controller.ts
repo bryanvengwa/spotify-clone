@@ -1,4 +1,15 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpException,
+  HttpStatus,
+  Param,
+  ParseIntPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song-dto';
 import { STATUS_CODES } from 'http';
@@ -15,23 +26,23 @@ export class SongsController {
 
   @Get()
   findAllSongs() {
-    try{
-        throw new Error('Error in db while fetching records')
-        return this.songService.findAll();
-    }catch(err){
-        throw new HttpException('server yaita error' , HttpStatus.FORBIDDEN, {
-            cause: err
-        })
+    try {
+      throw new Error('Error in db while fetching records');
+      return this.songService.findAll();
+    } catch (err) {
+      throw new HttpException('internal server error', HttpStatus.FORBIDDEN, {
+        cause: err,
+      });
     }
   }
 
   @Get(':id')
-  findOne() {
-    return 'fetch song based on the id';
+  findOne(@Param('id',ParseIntPipe) id: number) {
+    return `fetch the song based on the id ${id} of type ${typeof id}`;
   }
   @Put(':id')
   update() {
-    return 'update song based on the id';
+    return 'update song based on the id ';
   }
   @Delete(':id')
   delete() {}
