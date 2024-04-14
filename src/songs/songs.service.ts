@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { CreateSongDTO } from './dto/create-song-dto';
 
 @Injectable()
 export class SongsService {
   // local array
 
-  private readonly songs : string[] = [];
-  create(song : string) {
+  private readonly songs : any[] = [];
+  create(song : CreateSongDTO) {
     // save the songs to the db
     this.songs.push(song);
     return this.songs;
