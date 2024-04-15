@@ -5,7 +5,7 @@ import { CreateSongDTO } from './dto/create-song-dto';
 export class SongsService {
   // local array
 
-  private readonly songs : any[] = [];
+  private readonly songs : CreateSongDTO[] = [];
   create(song : CreateSongDTO) {
     // save the songs to the db
     this.songs.push(song);
