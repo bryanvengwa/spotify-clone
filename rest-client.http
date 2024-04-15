@@ -2,16 +2,16 @@ GET http://localhost:3000/
 ###
 GET http://localhost:3000/songs
 ###
-GET http://localhost:3000/songs/re
+GET http://localhost:3000/songs/21
 ###
 POST http://localhost:3000/songs
 Content-Type: application/json
 
 {
-    "title":"First Person Shooter",
-    "artist":["nm"],
-    "releaseDate":"2022-09-29",
-    "duration":"02:34"
+    "title":"First person shooter",
+    "artist":["J cole ", "Drake "],
+    "releaseDate":"2023-09-29",
+    "duration":"04:34"
 }
 
 
