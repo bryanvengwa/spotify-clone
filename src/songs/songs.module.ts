@@ -2,6 +2,11 @@ import { Module } from '@nestjs/common';
 import { SongsController } from './songs.controller';
 import { SongsService } from './songs.service';
 
+const mockSongService = {
+  findAll(){
+    return [{id: 1, title: 'lasting lover'}]
+  }
+}
 @Module({
   controllers: [SongsController],
   providers: [
@@ -9,7 +14,7 @@ import { SongsService } from './songs.service';
 
     {
       provide: SongsService,
-      useClass: SongsService,
+      useValue: mockSongService,  
     },
   ],
 })
