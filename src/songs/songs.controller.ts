@@ -5,6 +5,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Inject,
   Param,
   ParseIntPipe,
   Post,
@@ -13,10 +14,16 @@ import {
 import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song-dto';
 import { STATUS_CODES } from 'http';
+import { Connection } from 'src/common/constants/connection';
 
 @Controller('songs')
 export class SongsController {
-  constructor(private songService: SongsService) {}
+  constructor(
+    private songService: SongsService,
+    @Inject('CONNECTION') private connection: Connection,
+  ) {
+    console.log(connection)
+  }
 
   @Post()
   create(@Body() CreateSongDTO: CreateSongDTO) {
@@ -37,7 +44,13 @@ export class SongsController {
   }
 
   @Get(':id')
-  findOne(@Param('id', new ParseIntPipe({errorHttpStatusCode : HttpStatus.NOT_ACCEPTABLE})) id: number) {
+  findOne(
+    @Param(
+      'id',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: number,
+  ) {
     return `fetch the song based on the id ${id} of type ${typeof id}`;
   }
   @Put(':id')
