@@ -1,7 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Scope } from '@nestjs/common';
 import { CreateSongDTO } from './dto/create-song-dto';
 
-@Injectable()
+@Injectable({
+  scope : Scope.TRANSIENT
+})
 export class SongsService {
   // local array
 

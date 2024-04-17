@@ -10,19 +10,23 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Scope,
 } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song-dto';
 import { STATUS_CODES } from 'http';
 import { Connection } from 'src/common/constants/connection';
 
-@Controller('songs')
+@Controller({
+  path: 'songs',
+  scope: Scope.REQUEST,
+})
 export class SongsController {
   constructor(
     private songService: SongsService,
     @Inject('CONNECTION') private connection: Connection,
   ) {
-    console.log(connection)
+    console.log(connection);
   }
 
   @Post()
@@ -34,7 +38,7 @@ export class SongsController {
   @Get()
   findAllSongs() {
     try {
-      throw new Error('Error in db while fetching records');
+      
       return this.songService.findAll();
     } catch (err) {
       throw new HttpException('internal server error', HttpStatus.FORBIDDEN, {
