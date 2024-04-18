@@ -56,7 +56,7 @@ export class SongsController {
       new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
     )
     id: number,
-  ) {
+  ) : Promise<Song>  {
     return this.songService.findOne(id);
   }
   @Put(':id')
