@@ -9,9 +9,11 @@ import { InjectRepository } from '@nestjs/typeorm';
 })
 export class SongsService {
   // local array
-  constructor(@InjectRepository(Song) private songsRepository: Repository<Song>) {}
+  constructor(
+    @InjectRepository(Song) private songsRepository: Repository<Song>,
+  ) {}
 
- async create(songDTO: CreateSongDTO): Promise<Song> {
+  async create(songDTO: CreateSongDTO): Promise<Song> {
     const song = new Song();
     song.title = songDTO.title;
     song.artist = songDTO.artist;
@@ -20,7 +22,13 @@ export class SongsService {
     song.releaseDate = songDTO.releaseDate;
     return await this.songsRepository.save(song);
   }
-  findAll() {
-    // fetch the songs from the db
+  async findAll() : Promise<Song[]> {
+    return await this.songsRepository.find();
+  }
+
+  async findOne(id : number){
+    return await this.songsRepository.findOneBy({id : id});
+    
+
   }
 }

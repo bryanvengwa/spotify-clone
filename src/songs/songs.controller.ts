@@ -28,22 +28,20 @@ export class SongsController {
   constructor(
     private songService: SongsService,
     @Inject('CONNECTION') private connection: Connection,
-    @InjectRepository(Song) private songsRepository: Repository<Song>
+    @InjectRepository(Song) private songsRepository: Repository<Song>,
   ) {
     console.log(connection);
   }
 
   @Post()
-  async create(@Body() CreateSongDTO: CreateSongDTO) : Promise<Song> {
-    return  this.songService.create(CreateSongDTO);
-    
+  async create(@Body() CreateSongDTO: CreateSongDTO): Promise<Song> {
+    return this.songService.create(CreateSongDTO);
   }
 
   @Get()
   findAllSongs() {
     try {
-      
-      return this.songService.findAll();
+      return  this.songService.findAll();
     } catch (err) {
       throw new HttpException('internal server error', HttpStatus.FORBIDDEN, {
         cause: err,
