@@ -23,3 +23,14 @@ what is the use of registering the validation pipe to the apps middleware
     console.log(dataSource.driver.database)
 
   }
+
+  after declaring an entity () import it in the module
+  imports:[TypeOrmModule.forFeature([Song])],  
+  after this inject the typeorm repository and use the name of the entity as the generic type and now peform crud operations in thte injected service
+
+In TypeORM, a repository acts as a specialized layer to interact with a specific type of database entity.  Here's a breakdown of what a repository is and how it functions:
+
+Purpose:
+
+Provides a clean and convenient way to perform CRUD (Create, Read, Update, Delete) operations on your database entities.
+Simplifies data access logic compared to directly using the underlying Entity Manager.
