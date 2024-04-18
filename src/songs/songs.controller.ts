@@ -57,7 +57,7 @@ export class SongsController {
     )
     id: number,
   ) {
-    return `fetch the song based on the id ${id} of type ${typeof id}`;
+    return this.songService.findOne(id);
   }
   @Put(':id')
   update() {
