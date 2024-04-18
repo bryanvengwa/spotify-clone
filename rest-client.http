@@ -11,7 +11,8 @@ Content-Type: application/json
     "title":"First person shooter",
     "artist":["J cole ", "Drake "],
     "releaseDate":"2023-09-29",
-    "duration":"04:34"
+    "duration":"04:34",
+    "lyrics": "fafafadfan sdfaslfas fsaldfas df"
 }
 
 

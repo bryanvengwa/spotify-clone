@@ -16,6 +16,9 @@ import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song-dto';
 import { STATUS_CODES } from 'http';
 import { Connection } from 'src/common/constants/connection';
+import { Song } from './song.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Controller({
   path: 'songs',
@@ -25,14 +28,15 @@ export class SongsController {
   constructor(
     private songService: SongsService,
     @Inject('CONNECTION') private connection: Connection,
+    @InjectRepository(Song) private songsRepository: Repository<Song>
   ) {
     console.log(connection);
   }
 
   @Post()
-  create(@Body() CreateSongDTO: CreateSongDTO) {
-    this.songService.create(CreateSongDTO);
-    return this.songService.findAll();
+  async create(@Body() CreateSongDTO: CreateSongDTO) : Promise<Song> {
+    return  this.songService.create(CreateSongDTO);
+    
   }
 
   @Get()

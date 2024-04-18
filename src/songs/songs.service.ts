@@ -17,7 +17,7 @@ export class SongsService {
     song.artist = songDTO.artist;
     song.duration = songDTO.duration;
     song.lyrics = songDTO.lyrics;
-    song.releaseDate = song.releaseDate;
+    song.releaseDate = songDTO.releaseDate;
     return await this.songsRepository.save(song);
   }
   findAll() {

@@ -19,7 +19,7 @@ export class CreateSongDTO {
   @IsNotEmpty()
   @IsDateString()
   readonly releaseDate: Date;
-  
+
   @IsNotEmpty()
   @IsMilitaryTime()
   duration: Date;

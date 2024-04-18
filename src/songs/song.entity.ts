@@ -8,12 +8,13 @@ export class Song {
   title: string;
   @Column('varchar', {array:true})
   artist: string[];
-  @Column()
+  @Column('date')
   releaseDate : Date;
 
-  @Column('date')
+  @Column({type: "time"})
   duration : Date;
-  @Column('text')
+
+  @Column({type: 'text'})
   lyrics : string
 
 

@@ -7,6 +7,7 @@ import { SongsController } from './songs/songs.controller';
 import { DevConfigService } from './common/providers/DevConfigService';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
+import { Song } from './songs/song.entity';
 
 const devConfig = {
   port: 3000,
@@ -23,7 +24,7 @@ const proConfig = {
       username:'postgres',
       password: 'password',
       type:'postgres',
-      entities: [],
+      entities: [Song],
       synchronize: true,
     }),
     SongsModule,
@@ -51,3 +52,4 @@ export class AppModule implements NestModule {
     consumer.apply(LoggerMiddleware).forRoutes(SongsController);
   }
 }
+ 

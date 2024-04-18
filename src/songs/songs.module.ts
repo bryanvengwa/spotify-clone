@@ -6,24 +6,20 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Song } from './song.entity';
 
 const mockSongService = {
-  findAll(){
-    return [{id: 1, title: 'lasting lover'}]
-  }
-}
+  findAll() {
+    return [{ id: 1, title: 'lasting lover' }];
+  },
+};
 @Module({
-  imports:[TypeOrmModule.forFeature([Song])],
+  imports: [TypeOrmModule.forFeature([Song])],
   controllers: [SongsController],
   providers: [
     SongsService,
 
-    // {
-    //   provide: SongsService,
-    //   useValue: mockSongService,  
-    // },
     {
       provide: 'CONNECTION',
-      useValue: connection
-    }
+      useValue: connection,
+    },
   ],
 })
 export class SongsModule {}
