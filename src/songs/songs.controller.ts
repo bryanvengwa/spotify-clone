@@ -18,7 +18,7 @@ import { STATUS_CODES } from 'http';
 import { Connection } from 'src/common/constants/connection';
 import { Song } from './song.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 
 @Controller({
   path: 'songs',
@@ -41,7 +41,7 @@ export class SongsController {
   @Get()
   findAllSongs() {
     try {
-      return  this.songService.findAll();
+      return this.songService.findAll();
     } catch (err) {
       throw new HttpException('internal server error', HttpStatus.FORBIDDEN, {
         cause: err,
@@ -56,7 +56,7 @@ export class SongsController {
       new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
     )
     id: number,
-  ) : Promise<Song>  {
+  ): Promise<Song> {
     return this.songService.findOne(id);
   }
   @Put(':id')
@@ -65,9 +65,12 @@ export class SongsController {
   }
   @Delete(':id')
   delete(
-    @Param('id', new ParseIntPipe({errorHttpStatusCode : HttpStatus.NOT_ACCEPTABLE}))
-    id : number
-  ) {
-    return this.songService.remove(id)
+    @Param(
+      'id',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: number,
+  ) : Promise<DeleteResult> {
+    return this.songService.remove(id);
   }
 }
