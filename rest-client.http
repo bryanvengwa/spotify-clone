@@ -6,15 +6,20 @@ PUT  http://localhost:3000/songs/3
 Content-Type: application/json 
 
 {
-    "title":"Costa Rica",
-    "artist":["DREAMVILEE ", "J.I.D"],
-    "releaseDate":"2023-09-29",
+    "title":"latest song",
+    "artist":["Drake"],
+    "releaseDate":"2024-08-02",
     "duration":"04:34",
-    "lyrics": "fafafadfan sdfaslfas fsaldfas df"
+    "lyrics": "HOw about now"
 }
 
+# ###
+# GET http://localhost:3000/songs/?page=4&limit=2
+# ###
+
 ###
-GET http://localhost:3000/songs/?page=4&limit=2
+
+GET http://localhost:3000/songs/
 ###
 GET http://localhost:3000/songs/2
 ###
@@ -23,11 +28,11 @@ POST http://localhost:3000/songs
 Content-Type: application/json 
 
 {
-    "title":"LIKE THAT",
-    "artist":["DAMIAN", "BUJU BANTON"],
-    "releaseDate":"2023-09-29",
+    "title":"adidass",
+    "artist":["Drake"],
+    "releaseDate":"2024-09-02",
     "duration":"04:34",
-    "lyrics": "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGS"
+    "lyrics": "HOw about now"
 }
 
 
