@@ -2,9 +2,22 @@ GET http://localhost:3000/
 ###
 DELETE http://localhost:3000/songs/2
 ###
+PUT  http://localhost:3000/songs/3
+Content-Type: application/json 
+
+{
+    "title":"Costa Rica",
+    "artist":["DREAMVILEE ", "J.I.D"],
+    "releaseDate":"2023-09-29",
+    "duration":"04:34",
+    "lyrics": "fafafadfan sdfaslfas fsaldfas df"
+}
+
+###
 GET http://localhost:3000/songs
 ###
 GET http://localhost:3000/songs/2
+###
 ###
 POST http://localhost:3000/songs
 
