@@ -30,6 +30,7 @@
     "git": "^0.1.5",
     "mssql": "^10.0.2",
     "mysql": "^2.18.1",
+    "nestjs-typeorm-paginate": "^4.0.4",
     "pg": "^8.11.5",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",

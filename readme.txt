@@ -34,3 +34,7 @@ Purpose:
 
 Provides a clean and convenient way to perform CRUD (Create, Read, Update, Delete) operations on your database entities.
 Simplifies data access logic compared to directly using the underlying Entity Manager.
+
+pagination in nest js is accomplished by using external packages :
+npm install nestjs-typeorm-paginate
+  
