@@ -14,21 +14,20 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/songs
+GET http://localhost:3000/songs/?page=4&limit=2
 ###
 GET http://localhost:3000/songs/2
 ###
 ###
 POST http://localhost:3000/songs
-
 Content-Type: application/json 
 
 {
-    "title":"First person shooter",
-    "artist":["J cole ", "Drake "],
+    "title":"LIKE THAT",
+    "artist":["DAMIAN", "BUJU BANTON"],
     "releaseDate":"2023-09-29",
     "duration":"04:34",
-    "lyrics": "fafafadfan sdfaslfas fsaldfas df"
+    "lyrics": "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGS"
 }
 
 
