@@ -45,3 +45,6 @@ implemented pagination and sorting
     queryBuilder.orderBy('c.releaseDate', 'DESC');
     return paginate<Song>(queryBuilder, options);
  }
+
+ Many to many relationship
+ when creating this the entity must be registered in the module in which there are sharing the same relationship
