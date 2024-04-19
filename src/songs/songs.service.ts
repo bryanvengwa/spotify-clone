@@ -35,4 +35,8 @@ export class SongsService {
   async remove(id : number){
     return await this.songsRepository.delete({id : id});
   }
+  async update(id: number, songDTO : CreateSongDTO){
+    // return await this.songsRepository.update
+
+  }
 }

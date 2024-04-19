@@ -1,10 +1,13 @@
 GET http://localhost:3000/
 ###
+DELETE http://localhost:3000/songs/2
+###
 GET http://localhost:3000/songs
 ###
 GET http://localhost:3000/songs/2
 ###
 POST http://localhost:3000/songs
+
 Content-Type: application/json 
 
 {
