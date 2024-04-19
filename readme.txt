@@ -37,4 +37,11 @@ Simplifies data access logic compared to directly using the underlying Entity Ma
 
 pagination in nest js is accomplished by using external packages :
 npm install nestjs-typeorm-paginate
+
+implemented pagination and sorting 
   
+    async  paginate(options: IPaginationOptions): Promise<Pagination<Song>> {
+    const queryBuilder = this.songsRepository.createQueryBuilder('c');
+    queryBuilder.orderBy('c.releaseDate', 'DESC');
+    return paginate<Song>(queryBuilder, options);
+ }
