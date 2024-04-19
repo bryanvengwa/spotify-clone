@@ -8,6 +8,8 @@ import { DevConfigService } from './common/providers/DevConfigService';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { Song } from './songs/song.entity';
+import { Artist } from './artists/artist.entity';
+import { User } from './users/users.entity';
 
 const devConfig = {
   port: 3000,
@@ -21,10 +23,10 @@ const proConfig = {
       database: 'spotify-clone',
       host: 'localhost',
       port: 5432,
-      username:'postgres',
+      username: 'postgres',
       password: 'password',
-      type:'postgres',
-      entities: [Song],
+      type: 'postgres',
+      entities: [Song, Artist, User],
       synchronize: true,
     }),
     SongsModule,
@@ -52,4 +54,3 @@ export class AppModule implements NestModule {
     consumer.apply(LoggerMiddleware).forRoutes(SongsController);
   }
 }
- 
