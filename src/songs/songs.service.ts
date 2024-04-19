@@ -31,4 +31,8 @@ export class SongsService {
     
 
   }
+
+  async remove(id : number){
+    return await this.songsRepository.delete({id : id});
+  }
 }

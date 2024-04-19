@@ -64,5 +64,10 @@ export class SongsController {
     return 'update song based on the id ';
   }
   @Delete(':id')
-  delete() {}
+  delete(
+    @Param('id', new ParseIntPipe({errorHttpStatusCode : HttpStatus.NOT_ACCEPTABLE}))
+    id : number
+  ) {
+    return this.songService.remove(id)
+  }
 }
