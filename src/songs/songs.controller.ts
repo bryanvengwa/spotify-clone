@@ -18,7 +18,8 @@ import { STATUS_CODES } from 'http';
 import { Connection } from 'src/common/constants/connection';
 import { Song } from './song.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { updateSongDTO } from './dto/update-song-dto';
 
 @Controller({
   path: 'songs',
@@ -60,8 +61,15 @@ export class SongsController {
     return this.songService.findOne(id);
   }
   @Put(':id')
-  update() {
-    return 'update song based on the id ';
+  update(
+    @Param(
+      'id',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: number,
+    @Body() updateSongDTO: updateSongDTO,
+  ): Promise<UpdateResult> {
+    return this.songService.update(id, updateSongDTO);
   }
   @Delete(':id')
   delete(
@@ -70,7 +78,7 @@ export class SongsController {
       new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
     )
     id: number,
-  ) : Promise<DeleteResult> {
+  ): Promise<DeleteResult> {
     return this.songService.remove(id);
   }
 }
