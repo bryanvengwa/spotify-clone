@@ -41,3 +41,16 @@ DELETE http://localhost:3000/songs/1
 ###
 PUT http://localhost:3000/songs/1
 
+
+### create a new playlist
+
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+    "name": "liked songs",
+    "songs" : [
+        8
+    ],
+    "user": 1
+}

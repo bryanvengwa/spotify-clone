@@ -31,6 +31,7 @@ const proConfig = {
       synchronize: true,
     }),
     SongsModule,
+    // PlayListModule
   ],
   controllers: [AppController],
   providers: [
