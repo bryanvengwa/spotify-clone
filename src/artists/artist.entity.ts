@@ -10,6 +10,6 @@ export class Artist{
     @JoinColumn()
     user : User;
 
-    @ManyToMany(()=>Song, (song) => song.artist)
+    @ManyToMany(()=>Song, (song) => song.artists)
     songs : Song[];
 }

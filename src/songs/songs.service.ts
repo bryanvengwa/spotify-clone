@@ -19,11 +19,13 @@ export class SongsService {
   async create(songDTO: CreateSongDTO): Promise<Song> {
     const song = new Song();
     song.title = songDTO.title;
-    song.artist = songDTO.artist;
+
     song.duration = songDTO.duration;
     song.lyrics = songDTO.lyrics;
     song.releaseDate = songDTO.releaseDate;
-
+    const artists = await this.artistRepository.findByIds(songDTO.artist)
+    console.log('Dto artists: ', songDTO.artist)
+    song.artists = artists
     return await this.songsRepository.save(song);
   }
   async findAll() : Promise<Song[]> {

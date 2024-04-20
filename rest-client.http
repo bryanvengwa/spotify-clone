@@ -29,7 +29,7 @@ Content-Type: application/json
 
 {
     "title":"adidass",
-    "artist":["Drake"],
+    "artist":[1,2  ],
     "releaseDate":"2024-09-02",
     "duration":"04:34",
     "lyrics": "HOw about now"
