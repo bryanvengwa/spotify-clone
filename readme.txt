@@ -48,3 +48,7 @@ implemented pagination and sorting
 
  Many to many relationship
  when creating this the entity must be registered in the module in which there are sharing the same relationship
+
+ when creating a new module for example auth module:
+ nest g module auth 
+ nest g service auth  
