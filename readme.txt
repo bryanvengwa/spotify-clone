@@ -53,3 +53,10 @@ implemented pagination and sorting
  nest g module auth 
  nest g service auth  
  nest g controller auth
+
+
+ to be able to use jwt there is need to install 
+ npm install @nestjs/jwt jsonwebtoken passport-jwt
+ and then dev dependencies:
+ npm install --save-dev @types/passport
+
