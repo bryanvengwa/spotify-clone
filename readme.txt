@@ -52,3 +52,4 @@ implemented pagination and sorting
  when creating a new module for example auth module:
  nest g module auth 
  nest g service auth  
+ nest g controller auth
