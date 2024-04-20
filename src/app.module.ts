@@ -11,6 +11,7 @@ import { Song } from './songs/song.entity';
 import { Artist } from './artists/artist.entity';
 import { User } from './users/users.entity';
 import { Playlist } from './playlist/playlist.entity';
+import { PlayListModule } from './playlist/playlists.module';
 
 const devConfig = {
   port: 3000,
@@ -31,7 +32,7 @@ const proConfig = {
       synchronize: true,
     }),
     SongsModule,
-    // PlayListModule
+    PlayListModule,
   ],
   controllers: [AppController],
   providers: [
