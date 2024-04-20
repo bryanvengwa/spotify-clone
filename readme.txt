@@ -59,4 +59,5 @@ implemented pagination and sorting
  npm install @nestjs/jwt jsonwebtoken passport-jwt
  and then dev dependencies:
  npm install --save-dev @types/passport
+ npm i --save-dev @types/passport-jwt
 
