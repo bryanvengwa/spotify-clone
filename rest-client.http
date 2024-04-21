@@ -21,31 +21,33 @@ Content-Type: application/json
 
 GET http://localhost:3000/songs/
 ###
-GET http://localhost:3000/songs/2
+GET http://localhost:3000/songs/8
 ###
 ###
 POST http://localhost:3000/songs
 Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpbmdhcnJpeEBnbWFpbC5jb20iLCJ1c2VySWQiOjE2LCJhcnRpc3RJZCI6NSwiaWF0IjoxNzEzNjkzMzU5LCJleHAiOjE3MTM3Nzk3NTl9.y_EKqiEGvwlmyWWbTwiSXTKy6i-oni4srlWZJ2QzF5w
 
 {
-    "title":"adidass",
-    "artist":[1,2  ],
-    "releaseDate":"2024-09-02",
+    "title":"The fall off",
+    "artist":[16 ],
+    "releaseDate":"2027-09-02",
     "duration":"04:34",
-    "lyrics": "HOw about now"
+    "lyrics": "hgfdsasdfghjk"
 }
 
 
 ###
 DELETE http://localhost:3000/songs/1
 ###
-PUT http://localhost:3000/songs/1
+PUT http://localhost:3000/songs/8
 
 
 ### create a new playlist
 
 POST http://localhost:3000/playlists
 Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpbmdhcnJpeEBnbWFpbC5jb20iLCJ1c2VySWQiOjE2LCJhcnRpc3RJZCI6NSwiaWF0IjoxNzEzNjkzMzU5LCJleHAiOjE3MTM3Nzk3NTl9.y_EKqiEGvwlmyWWbTwiSXTKy6i-oni4srlWZJ2QzF5w
 
 {
     "name": "liked songs",
@@ -60,9 +62,9 @@ POST  http://localhost:3000/auth/signup
 Content-Type: application/json 
 
 {
-    "firstName": "Munashe",
-    "lastName": "Via",
-    "email": "munashehh@gmail.com",
+    "firstName": "Martin",
+    "lastName": "Garrix",
+    "email": "martingarrix@gmail.com",
     "password": "password"
 
 }
@@ -72,12 +74,13 @@ POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-"email": "john@gmail.com",
-"password": "password"
+    "email": "martingarrix@gmail.com",
+    "password": "password"
+
 }
 
 ### access token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwic3ViIjoyMDAwMDAwLCJpYXQiOjE3MTM2MzkzNTIsImV4cCI6MTcxMzcyNTc1Mn0.qDbodlIEiFziramIenBVc74Aw25f5nuchcySdfTpEAo
 ### getProfile
 
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwic3ViIjoyMDAwMDAwLCJpYXQiOjE3MTM2Mzk5MzEsImV4cCI6MTcxMzcyNjMzMX0.mJssvleYOnIxZDrgGrTsW0GhY8mfD0a2Di6O0FcZofM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpbmdhcnJpeEBnbWFpbC5jb20iLCJ1c2VySWQiOjE2LCJhcnRpc3RJZCI6NSwiaWF0IjoxNzEzNjkzMzU5LCJleHAiOjE3MTM3Nzk3NTl9.y_EKqiEGvwlmyWWbTwiSXTKy6i-oni4srlWZJ2QzF5w

@@ -12,6 +12,7 @@ import {
   Post,
   Put,
   Query,
+  Request,
   Scope,
   UseGuards,
 } from '@nestjs/common';
@@ -41,7 +42,12 @@ export class SongsController {
 
   @Post()
   @UseGuards(ArtistJwtGuard)
-  async create(@Body() CreateSongDTO: CreateSongDTO): Promise<Song> {
+  async create(
+    @Body() CreateSongDTO: CreateSongDTO,
+    @Request() req,
+  ): Promise<Song> {
+    console.log(req.user)
+    console.log('create endpoitng song running')
     return this.songService.create(CreateSongDTO);
   }
 
