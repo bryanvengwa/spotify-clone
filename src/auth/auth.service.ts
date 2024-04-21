@@ -5,6 +5,7 @@ import * as bcrypt from 'bcryptjs';
 import { User } from 'src/users/users.entity';
 import { JwtService } from '@nestjs/jwt';
 import { ArtistsService } from 'src/artists/artists.service';
+import { PayloadType } from './types';
 @Injectable()
 export class AuthService {
   constructor(
@@ -23,13 +24,13 @@ export class AuthService {
       delete user.password;
 
       // Sends JWT Token back in the response
-      const payload = { email: user.email, sub: user.id };
+      const payload : PayloadType = { email: user.email, userId: user.id };
       const artist = await this.artistService.findArtist(user.id)
       if(artist){ 
         payload.artistId = artist.id
       }
       return {
-        accessToken: this.jwtService.sign(payload),
+        accessToken: this.jwtService.sign( payload),
       };
     } else {
       throw new UnauthorizedException('Password does not match'); // 5.
