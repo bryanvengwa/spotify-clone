@@ -60,9 +60,9 @@ POST  http://localhost:3000/auth/signup
 Content-Type: application/json 
 
 {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "china@gmail.com",
+    "firstName": "Munashe",
+    "lastName": "Via",
+    "email": "munashehh@gmail.com",
     "password": "password"
 
 }

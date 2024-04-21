@@ -26,7 +26,7 @@ if (passwordMatched) {
 } else {
 throw new UnauthorizedException("Password does not match"); // 5.
 } 
-return;
+
 }
 
 }
