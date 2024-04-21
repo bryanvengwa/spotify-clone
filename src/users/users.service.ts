@@ -1,5 +1,5 @@
 
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { HttpException, HttpStatus, Injectable, UnauthorizedException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { User } from "./users.entity";
@@ -13,7 +13,13 @@ private userRepository: Repository<User> // 1.
 ) {}
 async create(userDTO: CreateUserDTO): Promise<User> {
 const salt = await bcrypt.genSalt(); // 2.
-userDTO.password = await bcrypt.hash(userDTO.password, salt); // 3. 
+userDTO.password = await bcrypt.hash(userDTO.password, salt); // 3.
+const emailExists = await this.userRepository.exists({where:{
+    email : userDTO.email
+}}) 
+    if(emailExists){
+        throw new HttpException('Email is already in use', HttpStatus.CONFLICT)
+    }
 const user = await this.userRepository.save(userDTO); // 4.
 delete user.password; // 5.
 return user; // 6. }
