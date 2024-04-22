@@ -46,8 +46,8 @@ export class SongsController {
     @Body() CreateSongDTO: CreateSongDTO,
     @Request() req,
   ): Promise<Song> {
-    console.log(req.user)
-    console.log('create endpoitng song running')
+    console.log(req.user);
+    console.log('create endpoitng song running');
     return this.songService.create(CreateSongDTO);
   }
 

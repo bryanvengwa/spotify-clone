@@ -31,6 +31,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcnRpb
 {
     "title":"The fall off",
     "artist":[16 ],
+    "artists":[16 ],
     "releaseDate":"2027-09-02",
     "duration":"04:34",
     "lyrics": "hgfdsasdfghjk"
