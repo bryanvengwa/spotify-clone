@@ -4,6 +4,7 @@ import { UsersService } from "src/users/users.service";
 import * as bcrypt from "bcryptjs";
 import { User } from "src/users/users.entity";
 import { JwtService } from "@nestjs/jwt";
+import * as speakeasy from 'speakeasy';
 @Injectable()
 export class AuthService {
   constructor(private userService: UsersService , private jwtService : JwtService) {}
@@ -26,7 +27,17 @@ if (passwordMatched) {
 } else {
 throw new UnauthorizedException("Password does not match"); // 5.
 } 
-return;
+
 }
+async enable2FA(userId: number) : Promise<Enable2FAType> {
+  const user = await this.userService.findById({ id: userId }); //1
+  if (user.enable2FA) { //2
+  return { secret: user.twoFASecret };
+  }
+  const secret = speakeasy.generateSecret(); //3
+  console.log(secret);
+  user.twoFASecret = secret.base32; //4
+  await this.userService.updateSecretKey(user.id, user.twoFASecret); //5 return { secret: user.twoFASecret }; //6
+  }
 
 }
