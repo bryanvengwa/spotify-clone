@@ -25,4 +25,8 @@ async findOne(data: Partial<User>): Promise<User> {
     }
     return user;
    }
+   async findById(id : number){
+    return await this.userRepository.findOneBy({ id: id });
+   }
+   
 }
