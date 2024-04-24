@@ -28,5 +28,8 @@ async findOne(data: Partial<User>): Promise<User> {
    async findById(id : number){
     return await this.userRepository.findOneBy({ id: id });
    }
+   async updateSecretKey(id: number, secret: string){
+    
+   }
    
 }
