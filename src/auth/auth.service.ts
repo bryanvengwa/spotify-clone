@@ -30,6 +30,7 @@ throw new UnauthorizedException("Password does not match"); // 5.
 } 
 
 }
+
 async enable2FA(userId: number) : Promise<Enable2FAType> {
   const user = await this.userService.findById( userId ); //1
   if (user.enable2FA) { //2
