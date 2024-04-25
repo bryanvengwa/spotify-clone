@@ -4,7 +4,7 @@ import { Repository, UpdateResult } from 'typeorm';
 import { User } from './users.entity';
 import * as bcrypt from 'bcryptjs';
 import { CreateUserDTO } from './dto/create-user.dto';
-import {uuid4 } from 'uuid'
+import { v4 as uuid4 } from 'uuid'
 @Injectable()
 export class UsersService {
   constructor(
