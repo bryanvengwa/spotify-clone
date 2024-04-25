@@ -31,7 +31,7 @@ export class UsersService {
    return await this.userRepository.update( {id: id}, { twoFASecret: secret , enable2FA : true});
   }
   async disable2FA(id:number):Promise<UpdateResult> {
-    return this.userRepository.update({id:id}, {enable2FA:false})
-    
+    return this.userRepository.update({id:id}, {enable2FA:false , twoFASecret: nul})
+
   }
 }
