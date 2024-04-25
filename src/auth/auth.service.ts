@@ -6,6 +6,7 @@ import { User } from "src/users/users.entity";
 import { JwtService } from "@nestjs/jwt";
 import * as speakeasy from 'speakeasy';
 import { Enable2FAType } from "./types";
+import { UpdateResult } from "typeorm";
 @Injectable()
 export class AuthService {
   constructor(private userService: UsersService , private jwtService : JwtService) {}
@@ -64,6 +65,9 @@ async enable2FA(userId: number) : Promise<Enable2FAType> {
     } catch (err) {
     throw new UnauthorizedException('Error verifying token');
     }
+    }
+    async disable2FA(userId:number):Promise<UpdateResult>{
+      return this.userService.disable2FA(userId)
     }
     
 
