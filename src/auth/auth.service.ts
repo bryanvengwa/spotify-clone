@@ -11,7 +11,7 @@ import { UpdateResult } from "typeorm";
 export class AuthService {
   constructor(private userService: UsersService , private jwtService : JwtService) {}
 
-async login(loginDTO: LoginDTO): Promise<{ accessToken: string }>{
+async login(loginDTO: LoginDTO):Promise<{ accessToken: string } | { validate2FA: string; message: string }>{
 const user = await this.userService.findOne(loginDTO); // 1.
  const passwordMatched = await bcrypt.compare(
       loginDTO.password,
@@ -19,9 +19,18 @@ user.password
 );
 if (passwordMatched) {
     delete user.password;
+    
  
     // Sends JWT Token back in the response
     const payload = { email: user.email, sub: user.id };
+    if (user.enable2FA && user.twoFASecret) { //1.
+      // sends the validateToken request link
+      // else otherwise sends the json web token in the response 
+      return { 
+      validate2FA: 'http://localhost:3000/auth/validate-2fa',
+      message: 'Please send the one-time password/token from your Google Authenticator App',
+      };
+      }
     return {
         accessToken: this.jwtService.sign(payload),
     };

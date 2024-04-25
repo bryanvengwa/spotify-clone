@@ -92,7 +92,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZ
 Content-Type: application/json
 
 {
-    "token": "609747"
+    "token": "927833"
 }
 ### disable 2FA
 
