@@ -78,5 +78,10 @@ async enable2FA(userId: number) : Promise<Enable2FAType> {
       return this.userService.disable2FA(userId)
     }
     
+    async validateUserByApiKey(apiKey: string): Promise<User> {
+      return this.userService.findByApiKey(apiKey);
+      }
+
+    
 
 }

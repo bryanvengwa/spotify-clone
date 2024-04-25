@@ -15,4 +15,5 @@ import { ApiKeyStrategy } from './apiKeyStrategy';
   providers: [AuthService , jwtStrategy , ArtistsService, ApiKeyStrategy],
   controllers: [AuthController],
 })
+
 export class AuthModule {}

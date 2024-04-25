@@ -36,4 +36,7 @@ export class UsersService {
     return this.userRepository.update({id:id}, {enable2FA:false , twoFASecret: null})
 
   }
+  async findByApiKey(apiKey: string): Promise<User> {
+    return this.userRepository.findOneBy({ apiKey });
+    }
 }
