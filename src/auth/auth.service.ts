@@ -1,8 +1,7 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { LoginDTO } from "./dto/login.dto";
 import { UsersService } from "src/users/users.service";
-import * as bcrypt from "bcryptjs";
-import { User } from "src/users/users.entity";
+import * as bcrypt from "bcryptjs";import { User } from "src/users/users.entity";
 import { JwtService } from "@nestjs/jwt";
 import * as speakeasy from 'speakeasy';
 import { Enable2FAType } from "./types";
@@ -78,6 +77,11 @@ async enable2FA(userId: number) : Promise<Enable2FAType> {
     async disable2FA(userId:number):Promise<UpdateResult>{
       return this.userService.disable2FA(userId)
     }
+    
+    async validateUserByApiKey(apiKey: string): Promise<User> {
+      return this.userService.findByApiKey(apiKey);
+      }
+
     
 
 }

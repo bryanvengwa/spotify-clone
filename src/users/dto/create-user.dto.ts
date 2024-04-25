@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import { Column } from "typeorm";
 export class CreateUserDTO {
     
@@ -15,4 +15,7 @@ export class CreateUserDTO {
   @IsString()
   @IsNotEmpty()
   password: string;
+
+  @IsOptional()
+  apiKey: string;
 }

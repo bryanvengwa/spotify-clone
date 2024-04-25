@@ -1,11 +1,6 @@
 import { Exclude } from 'class-transformer';
 import { Playlist } from 'src/playlist/playlist.entity';
-import {
-  Column,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('users')
 export class User {
@@ -27,7 +22,9 @@ export class User {
 
   @Column({ nullable: true, type: 'text' })
   twoFASecret: string;
-  
+
   @Column({ default: false, type: 'boolean' })
   enable2FA: boolean;
+  @Column()
+  apiKey: string;
 }
