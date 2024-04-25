@@ -4,7 +4,7 @@ export const dataSourceOptions: DataSourceOptions = {
   host: 'localhost',
   port: 5432,
   username: 'postgres',
-  password: 'root',
+  password: 'password',
   database: 'n-test',
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
