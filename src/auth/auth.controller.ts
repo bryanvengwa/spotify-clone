@@ -38,4 +38,17 @@ export class AuthController {
     console.log(req.user);
     return this.authService.enable2FA(req.user.userId);
   }
+  @Post('validate-2fa')
+@UseGuards(JwtAuthGuard)
+validate2FA(
+@Request()
+req,
+@Body()
+ValidateTokenDTO: ValidateTokenDTO,
+): Promise<{ verified: boolean }> {
+return this.authService.validate2FAToken(
+req.user.userId,
+ValidateTokenDTO.token,
+);
+}
 }

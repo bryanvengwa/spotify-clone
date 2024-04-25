@@ -62,7 +62,7 @@ Content-Type: application/json
 {
     "firstName": "John",
     "lastName": "Doe",
-    "email": "china@gmail.com",
+    "email": "chinra@gmail.com",
     "password": "password"
 
 }
@@ -81,3 +81,8 @@ Content-Type: application/json
 
 GET http://localhost:3000/profile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwic3ViIjoyMDAwMDAwLCJpYXQiOjE3MTM2Mzk5MzEsImV4cCI6MTcxMzcyNjMzMX0.mJssvleYOnIxZDrgGrTsW0GhY8mfD0a2Di6O0FcZofM
+
+###
+
+POST  http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwic3ViIjoyMDAwMDAwLCJpYXQiOjE3MTQwMTY3MTMsImV4cCI6MTcxNDEwMzExM30.xzU8o3q4uPcKFkPcakHA9zfPQjbQY419RD_UoqcJjug
