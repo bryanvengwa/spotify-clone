@@ -15,6 +15,7 @@ import { PlayListModule } from './playlist/playlists.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ArtistsModule } from './artists/artists.module';
+import { dataSourceOptions } from 'db/data-source';
 
 const devConfig = {
   port: 3000,
@@ -24,16 +25,7 @@ const proConfig = {
 };
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      database: 'spotify-clone',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'password',
-      type: 'postgres',
-      entities: [Song, Artist, User, Playlist],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(dataSourceOptions),
     SongsModule,
     PlayListModule,
     AuthModule,
