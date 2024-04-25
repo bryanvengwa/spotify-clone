@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { Column } from "typeorm";
 export class CreateUserDTO {
     
   @IsString()
@@ -9,6 +10,7 @@ export class CreateUserDTO {
   lastName: string;
   @IsEmail()
   @IsNotEmpty()
+  @Column({unique: true})
   email: string;
   @IsString()
   @IsNotEmpty()
