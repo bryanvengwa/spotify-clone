@@ -6,6 +6,7 @@ import { LoginDTO } from './dto/login.dto';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-guard';
 import { Enable2FAType } from './types';
+import { ValidateTokenDTO } from './dto/validate-token.dto';
 
 @Controller('auth')
 export class AuthController {

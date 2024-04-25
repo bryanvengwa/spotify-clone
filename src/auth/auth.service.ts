@@ -41,5 +41,30 @@ async enable2FA(userId: number) : Promise<Enable2FAType> {
   user.twoFASecret = secret.base32; //4
   await this.userService.updateSecretKey(user.id, user.twoFASecret); //5 return { secret: user.twoFASecret }; //6
   }
+  async validate2FAToken(
+    userId: number,
+    token: string,
+    ): Promise<{ verified: boolean }> {
+    try {
+    // find the user on the based on id
+    const user = await this.userService.findById(userId);
+    // extract his 2FA secret
+    // verify the secret with a token by calling the speakeasy verify method
+    const verified = speakeasy.totp.verify({
+    secret: user.twoFASecret,
+    token: token,
+    encoding: 'base32',
+    });
+    // if validated then sends the json web token in the response
+    if (verified) {
+    return { verified: true };
+    } else {
+    return { verified: false };
+    }
+    } catch (err) {
+    throw new UnauthorizedException('Error verifying token');
+    }
+    }
+    
 
 }
