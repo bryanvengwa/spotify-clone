@@ -1,8 +1,7 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { LoginDTO } from "./dto/login.dto";
 import { UsersService } from "src/users/users.service";
-import * as bcrypt from "bcryptjs";
-import { User } from "src/users/users.entity";
+import * as bcrypt from "bcryptjs";import { User } from "src/users/users.entity";
 import { JwtService } from "@nestjs/jwt";
 import * as speakeasy from 'speakeasy';
 import { Enable2FAType } from "./types";
