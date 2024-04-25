@@ -5,7 +5,7 @@ export const dataSourceOptions: DataSourceOptions = {
   port: 5432,
   username: 'postgres',
   password: 'password',
-  database: 'n-test',
+  database: 'spotify-clone',
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
 };
