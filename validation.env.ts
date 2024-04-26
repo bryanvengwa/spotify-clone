@@ -28,6 +28,7 @@ class EnvironmentVariables {
 export function validate(config: Record<string, unknown>) {
   //plainInstance converts plain (literal) object to class (constructor) object.
   // Also works with arrays.
+  console.log('config', config);
   const validatedConfig = plainToInstance(EnvironmentVariables, config, { /**
        * enableImplicitConversion will tell class-transformer that if it sees a
   primitive that is currently a string (like a boolean or a number) to assume it
