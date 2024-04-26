@@ -70,12 +70,11 @@ export class AuthController {
   @Get('profile') @UseGuards(AuthGuard('bearer')) getProfile(
     @Request()
     req,
-    ){
-     delete req.user.password;
-     return {
+  ) {
+    delete req.user.password;
+    return {
       msg: 'authenticated with api key',
       user: req.user,
-      };
-    }
-    
+    };
+  }
 }
