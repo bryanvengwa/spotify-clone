@@ -14,6 +14,7 @@ import { ArtistsModule } from './artists/artists.module';
 import { dataSourceOptions } from 'db/data-source';
 import { SeedsModule } from './seeds/seeds.module';
 import { ConfigModule } from '@nestjs/config';
+import configuration from './config/configuration';
 
 const devConfig = {
   port: 3000,
@@ -30,8 +31,11 @@ const proConfig = {
     UsersModule,
     ArtistsModule,
     SeedsModule,
-    ConfigModule.forRoot({envFilePath:['.env.development', '.env.production'], isGlobal: true})
-  
+    ConfigModule.forRoot({
+      envFilePath: ['.env.development', '.env.production'],
+      isGlobal: true,
+      load: [configuration]
+    }),
   ],
   controllers: [AppController],
   providers: [
