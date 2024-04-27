@@ -34,7 +34,7 @@ const proConfig = {
     UsersModule,
     ArtistsModule,
     SeedsModule,
-    ConfigModule,
+    ConfigModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [
