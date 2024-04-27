@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm';
 import { seedData } from '../../db/seeds/seed-data';
 
 @Injectable()
-export class SeedsService {
+export class SeedService {
   constructor(private readonly connection: DataSource) {}
   async seed(): Promise<void> {
     const queryRunner = this.connection.createQueryRunner(); //1
