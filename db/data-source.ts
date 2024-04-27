@@ -8,6 +8,7 @@ export const dataSourceOptions: DataSourceOptions = {
   database: 'spotify-clone',
   entities: ['dist/**/*.entity.js'],
   migrations: ['dist/db/migrations/*.js'],
+  synchronize: false,
 };
 const dataSource = new DataSource(dataSourceOptions);
 export default dataSource;
