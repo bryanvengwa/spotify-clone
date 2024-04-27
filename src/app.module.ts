@@ -13,6 +13,7 @@ import { UsersModule } from './users/users.module';
 import { ArtistsModule } from './artists/artists.module';
 import { dataSourceOptions } from 'db/data-source';
 import { SeedsModule } from './seeds/seeds.module';
+import { ConfigModule } from '@nestjs/config';
 
 const devConfig = {
   port: 3000,
@@ -29,6 +30,7 @@ const proConfig = {
     UsersModule,
     ArtistsModule,
     SeedsModule,
+    ConfigModule.forRoot({envFilePath:['.env.development', '.env.production']})
   
   ],
   controllers: [AppController],
