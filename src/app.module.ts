@@ -30,7 +30,7 @@ const proConfig = {
     UsersModule,
     ArtistsModule,
     SeedsModule,
-    ConfigModule.forRoot({envFilePath:['.env.development', '.env.production']})
+    ConfigModule.forRoot({envFilePath:['.env.development', '.env.production'], isGlobal: true})
   
   ],
   controllers: [AppController],
