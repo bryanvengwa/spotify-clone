@@ -7,10 +7,6 @@ import { SongsController } from './songs/songs.controller';
 import { DevConfigService } from './common/providers/DevConfigService';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
-import { Song } from './songs/song.entity';
-import { Artist } from './artists/artist.entity';
-import { User } from './users/users.entity';
-import { Playlist } from './playlist/playlist.entity';
 import { PlayListModule } from './playlist/playlists.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -33,6 +29,7 @@ const proConfig = {
     UsersModule,
     ArtistsModule,
     SeedsModule,
+  
   ],
   controllers: [AppController],
   providers: [
