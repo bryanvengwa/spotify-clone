@@ -23,7 +23,6 @@ export const seedData = async (manager: EntityManager): Promise<void> => { //1
       user.apiKey = uuid4();
       await manager.getRepository(User).save(user);
     }
-
 async function seedArtist() {
     const salt = await bcrypt.genSalt();
     const encryptedPassword = await bcrypt.hash("123456", salt);
