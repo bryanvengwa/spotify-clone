@@ -11,7 +11,7 @@ import { PlayListModule } from './playlist/playlists.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ArtistsModule } from './artists/artists.module';
-import { dataSourceOptions } from 'db/data-source';
+import { dataSourceOptions, typeOrmAsyncConfig } from 'db/data-source';
 import { SeedsModule } from './seeds/seeds.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
@@ -24,7 +24,7 @@ const proConfig = {
 };
 @Module({
   imports: [
-    TypeOrmModule.forRoot(dataSourceOptions),
+    TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     SongsModule,
     PlayListModule,
     AuthModule,
@@ -34,7 +34,7 @@ const proConfig = {
     ConfigModule.forRoot({
       envFilePath: ['.env.development', '.env.production'],
       isGlobal: true,
-      load: [configuration]
+      load: [configuration],
     }),
   ],
   controllers: [AppController],
