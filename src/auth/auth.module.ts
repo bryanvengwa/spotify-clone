@@ -10,10 +10,24 @@ import { ArtistsModule } from 'src/artists/artists.module';
 import { Artist } from 'src/artists/artist.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApiKeyStrategy } from './apiKeyStrategy';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 @Module({
-  imports: [UsersModule,ArtistsModule,TypeOrmModule.forFeature([Artist]), JwtModule.register({ secret: authConstants.secret,  signOptions : {expiresIn : '1d'} })],
-  providers: [AuthService , jwtStrategy , ArtistsService, ApiKeyStrategy],
+  imports: [
+    UsersModule,
+    ArtistsModule,
+    TypeOrmModule.forFeature([Artist]),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get<string>('secret'),
+        signOptions: {
+          expiresIn: '1d',
+        },
+      }),
+      inject: [ConfigService],
+    }),
+  ],
+  providers: [AuthService, jwtStrategy, ArtistsService, ApiKeyStrategy],
   controllers: [AuthController],
 })
-
 export class AuthModule {}
