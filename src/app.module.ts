@@ -11,7 +11,7 @@ import { PlayListModule } from './playlist/playlists.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ArtistsModule } from './artists/artists.module';
-import { dataSourceOptions, typeOrmAsyncConfig } from 'db/data-source';
+import {  typeOrmAsyncConfig } from 'db/data-source';
 import { SeedsModule } from './seeds/seeds.module';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
